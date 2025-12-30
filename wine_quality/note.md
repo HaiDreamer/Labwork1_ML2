@@ -8,6 +8,10 @@ path for file data: "D:\wine+quality"
     code LaTeX
 
 # PART 1
+Note
+    If standardize -> cov(Zx, Zy) = cor(X, Y)
+
+TODO
     need to compare with red and white wine ???
 
 
@@ -81,12 +85,22 @@ mean
 variance
     measure how far a set of random number are spread out of the mean
     var(X) = (standard deviation of x)^2 = sum((mean(x) - x)^2) / n
+
 covariance
-    defines between 2 variables at a time
+    defines between 2 variables at a time, do they vary together?
+        r=+1: perfect positive linear relationship (as X increases, Y increases)
+        r=−1: perfect negative linear relationship (as X increases, Y decreases)
+        r≈0: no linear relationship (could still be non-linear!)
     measure how much 2 random variables change together
+
 correlation
+    Theory
+        Covariance has units, correlation doesn’t
+            Covariance depends on the measurement units: if you change units (e.g., mg/L -> g/L), covariance changes.
+            Correlation divides by the standard deviations, so the units cancel out -> a unitless number -> more compatible
     scaled version of coveriance
     cor(x, y) = cov(x, y) / phi(x) / phi(y)
+
 DIFF: quality
     The physicochemical predictors are numerical, so we compute mean/variance/covariance/correlation directly. The label quality is an ordered score, so we additionally compute correlation between each feature and quality
 
@@ -94,4 +108,14 @@ DIFF: quality
 NO
 
 # PART 2: PCA
-## 
+## meaning
+Def: Summarize many (possibly correlated) features into a smaller number of new features called principal components (PCs)
+PCA chooses PCs so that:
+    PC1 captures the maximum possible variance in the data,
+    PC2 captures the next most variance while being orthogonal to PC1,
+    and so on.
+PCA on standardized data ≈ PCA based on the correlation matrix, rather than the raw covariance matrix
+
+## Apply PCA on the two selected datasets. Describe how you select the principal components. Is there any difference while using principal components with highest and lowest values?
+
+
